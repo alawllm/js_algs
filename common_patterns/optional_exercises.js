@@ -44,3 +44,58 @@ function areThereDuplicates(...args) {
 function areThereDuplicates() {
     return new Set(arguments).size !== arguments.length;
 }
+
+//multiple pointers - given an array and an integer
+//determine if there is a pair of numbers equal to the average
+
+function averagePair(arr, avg) {
+    let left = 0;
+    let right = arr.length - 1
+
+    while (left < right) {
+        let sum = (arr[left] + arr[right]) / 2;
+        if (sum === avg) {
+            return true;
+        }
+        else if (sum > avg) {
+            right--
+        } else {
+            left++
+        }
+    }
+    return false;
+}
+
+//check if string one is included in the str2
+//without changing the order
+
+function isSubsequence(str1, str2) {
+    var i = 0;
+    var j = 0;
+    if (!str1) return true;
+    while (j < str2.length) {
+        if (str2[j] === str1[i]) i++;
+        if (i === str1.length) return true;
+        j++;
+    }
+    return false;
+}
+
+//find max sum of a subarray of num length
+
+function maxSubarraySum(arr, num) {
+    let maxSum = 0;
+    let tempSum = 0;
+    if (arr.length < num) {
+        return null
+    }
+    for (let i = 0; i < num; i++) {
+        maxSum += arr[i]
+    }
+    tempSum = maxSum;
+    for (let i = num; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum
+}
