@@ -19,7 +19,7 @@ function selectionSort(arr) {
             arr[lowest] = temp;
         }
     }
-    return arr
+    return arr;
 }
 
 selectionSort([24, 33, 10, 18, 3])
