@@ -4,7 +4,9 @@
 //place at the correct place, repeat until the array is sorted
 
 function insertionSort(arr) {
+    //first loop goes forward
     for (let i = 1; i < arr.length; i++) {
+        //current val moves with the i
         let currentVal = arr[i];
         //working backwards when arr[j] bigger than current val
         for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {

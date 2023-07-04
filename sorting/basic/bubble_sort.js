@@ -35,14 +35,19 @@ function bubbleSort(arr) {
 
 function bubbleSortOptimized(arr) {
     let noSwaps;
+    //first loop goes from the end 
     for (let i = arr.length; i > 0; i--) {
         noSwaps = true;
         //while i goes doen so does j
+        //goes forward, from the current i to the end
+        //every next loop shorter
         for (let j = 0; j < i - 1; j++) {
+            //if the previous number bigger than the next one swap
             if (arr[j] > arr[j + 1]) {
                 //SWAP!
                 let temp = arr[j]
                 arr[j] = arr[j + 1]
+                //assign new temp
                 arr[j + 1] = temp;
                 noSwaps = false;
             }
